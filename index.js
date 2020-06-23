@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 //import Environment Variables
 require('dotenv').config();
 //Configuring the Database
@@ -13,6 +14,7 @@ const usersRouter = require('./Routes/usersRoute');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 app.use("/auth", usersRouter);
 //app.use('/auth', userRoutes);
 app.use("/inventory", categoryRouter);
